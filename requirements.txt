@@ -1,0 +1,51 @@
+Name Parser Requirements : 
+
+	Story:
+	As a User registering for the Stuff app
+	I want to be able to enter all of my name information into one box
+	So that I don't have to waste time hitting the tab button
+
+		Scenario:
+			Given a User registering with the name 'Zendaya'
+			When parsing the name
+			Then the first name field should be 'Zendaya'
+
+		Scenario:
+			Given a User registering with the name 'Steve Jones'
+			When parsing the name
+			Then the first name field should contain 'Steve'
+				And the last name field should contain 'Jones'
+
+		Scenario:
+			Given a User registering with the name 'Mary Barns-Jones'
+			When parsing the name
+			Then the first name field should contain 'Mary'
+				And the last name field should contain 'Barns-Jones'
+
+		Scenario:
+			Given a User registering with the name 'Steve L. Jones'
+			When parsing the name
+			Then the first name field should contain 'Steve'
+				And the last name field should contain 'Jones'
+				And the middle initial field should contain 'L'
+
+		Scenario:
+			Given a User registering with the name 'Bob Marley Jr.'
+			When parsing the name
+			Then the first name field should contain 'Bob'
+				And the last name field should contain 'Marley'
+				And the suffix field should contain 'Jr.'
+
+		Scenario:
+			Given a User registering with the name 'Mr. Bob Michaels'
+			When parsing the name
+			Then the first name field should contain 'Bob'
+				And the last name field should contain 'Michaels'
+				And the prefix field should contain 'Mr.'
+
+		Scenario:
+			Given a User registering with the name 'Mrs. Aunt Jemima'
+			When parsing the name
+			Then the first name field should contain 'Aunt'
+				And the last name field should contain 'Jemima'
+				And the prefix field should contain 'Mrs.'
